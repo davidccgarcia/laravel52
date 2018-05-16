@@ -12,16 +12,13 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
-    Route::get('confirmation/{token}', 'Auth\AuthController@getConfirmation');
-
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
-
+    require __DIR__ . '/routes/web.routes.php';
 });
 
+Route::group(['middleware' => ['api']], function () {
+    require __DIR__ . '/routes/api.routes.php';
+});
+
+Route::group(['middleware' => ['admin']], function () {
+    require __DIR__ . '/routes/admin.routes.php';
+});
