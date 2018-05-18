@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -21,5 +23,10 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    public function createUser(array $custom = [])
+    {
+        return factory(User::class)->create($custom);
     }
 }
