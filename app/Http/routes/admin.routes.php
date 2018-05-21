@@ -3,13 +3,6 @@
 use Illuminate\Foundation\Http\Middleware\Authorize;
 use App\Post;
 
-Route::bind('post', function ($post) {
-    $post = new Post();
-    $post->title = 'Laravel 5.6 is ready';
-
-    return $post;
-});
-
 Route::get('dashboard', function () {
     return '<h1>Welcome to the admin panel</h1>';
 });
@@ -26,9 +19,9 @@ Route::post('post', function () {
     return "[Store a post in the DB]";
 });
 
-Route::get('post/{post}/edit', function ($post) {
-    return "[Edit post $post->title]";
-})->middleware(Authorize::class . ':edit,post');
+Route::get('post/{slug}/edit', function (Post $slug) {
+    return "[Edit post $slug->title]";
+})->middleware(Authorize::class . ':edit,slug');
 
 Route::put('post/{post}', function ($post) {
     return "[Update post in the DB]";
