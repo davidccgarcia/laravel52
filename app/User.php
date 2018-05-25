@@ -34,4 +34,14 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function isAuthor(Post $post)
+    {
+        return $this->id == $post->author_id;
+    }
+
+    public function isAdmin()
+    {
+        return $this->email == 'admin@gmail.com';
+    }
+
 }

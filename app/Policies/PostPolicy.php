@@ -3,6 +3,8 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
+use App\User;
+use App\Post;
 
 class PostPolicy
 {
@@ -13,8 +15,8 @@ class PostPolicy
         return true;
     }
 
-    public function edit()
+    public function update(User $user, Post $post)
     {
-        return true;
+        return $user->isAuthor($post);
     }
 }
