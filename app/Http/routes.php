@@ -23,6 +23,10 @@ Route::group([
         require __DIR__ . '/routes/admin.routes.php';
 });
 
-Route::group(['middleware' => ['api']], function () {
+Route::group([
+        'prefix' => 'api', 
+        'middleware' => ['api'], 
+        'namespace' => 'Api'
+    ], function () {
     require __DIR__ . '/routes/api.routes.php';
 });
