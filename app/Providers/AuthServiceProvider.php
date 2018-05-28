@@ -34,9 +34,5 @@ class AuthServiceProvider extends ServiceProvider
         $gate->before(function (User $user) {
             return $user->isAdmin();
         });
-
-        $gate->define('admin', function (User $user) {
-            return $user->email === 'admin@gmail.com';
-        });
     }
 }
