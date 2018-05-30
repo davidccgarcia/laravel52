@@ -14,7 +14,7 @@ Route::get('dashboard', function () {
 Route::get('login-as/{id}', function ($id) {
     Auth::loginUsingId($id);
 
-    return redirect('/');
+    return redirect('/')->with('admin', 'return to be an administrator user');
 });
 
 Route::get('users', function () {

@@ -53,12 +53,12 @@
                             <a href="{{ url('/admin/dashboard') }}">Admin</a>
                         </li>
                     @endcan
-
-                    @cannot('admin')
+                    
+                    @if (Auth::check() && Session::has('admin')) 
                         <li>
                             <a href="{{ url('login-as-admin') }}">Login as Admin</a>
                         </li>
-                    @endcannot
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
