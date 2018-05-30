@@ -25,8 +25,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         return $app;
     }
 
-    public function createUser(array $custom = [])
-    {
-        return factory(User::class)->create($custom);
-    }
+    // public function createUser(array $custom = [])
+    // {
+    //     return factory(User::class)->create($custom);
+    // }
 }

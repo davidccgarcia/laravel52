@@ -53,6 +53,12 @@
                             <a href="{{ url('/admin/dashboard') }}">Admin</a>
                         </li>
                     @endcan
+
+                    @cannot('admin')
+                        <li>
+                            <a href="{{ url('login-as-admin') }}">Login as Admin</a>
+                        </li>
+                    @endcannot
                 </ul>
 
                 <!-- Right Side Of Navbar -->

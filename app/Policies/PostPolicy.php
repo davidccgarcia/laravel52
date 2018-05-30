@@ -19,4 +19,9 @@ class PostPolicy
     {
         return $user->isAuthor($post);
     }
+
+    public function admin()
+    {
+        return true;
+    }
 }
