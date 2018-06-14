@@ -32,7 +32,10 @@ class AuthenticationTest extends TestCase
 
     function test_a_user_can_login()
     {
-        $user = $this->createUser();
+        $user = $this->createUser([
+            'email' => 'admin@gmail.com', 
+            'password' => bcrypt('secret')
+        ]);
 
         $this->dontSeeIsAuthenticated();
 
@@ -68,7 +71,7 @@ class AuthenticationTest extends TestCase
 
     function test_an_admin_can_login_as_another_user()
     {
-        $admin = $this->createUser();
+        $admin = $this->createUser(['email' => 'admin@gmail.com']);
 
         $anotherUser = factory(User::class)->create();
 
@@ -78,15 +81,5 @@ class AuthenticationTest extends TestCase
             ->seePageIs('/')
             ->see($anotherUser->name)
             ->seeIsAuthenticatedAs($anotherUser);
-    }
-
-    public function createUser()
-    {
-        return factory(User::class)->create([
-            'first_name' => 'David', 
-            'last_name'  => 'García', 
-            'email'      => 'admin@gmail.com', 
-            'password'   => bcrypt('secret')
-        ]);
     }
 }
