@@ -20,5 +20,5 @@ Route::get('login-as/{id}', function ($id) {
 Route::get('users', function () {
     $users = User::all();
 
-    return view('users.list', compact('users'));
+    return view('admin.users', compact('users'));
 });

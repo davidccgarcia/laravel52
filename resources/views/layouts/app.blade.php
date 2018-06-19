@@ -51,6 +51,7 @@
                     @can('admin')
                         <li>
                             <a href="{{ url('/admin/dashboard') }}">Admin</a>
+                            <li><a href="{{ url('admin/users') }}">Users</a></li>
                         </li>
                     @endcan
                     

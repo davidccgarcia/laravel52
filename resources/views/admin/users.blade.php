@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Welcome - Laravel 5.2</div>
 
-                <div class="panel-body">
+                <div class="panel-body" id="content">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -24,9 +24,11 @@
                                 <th scope="row">{{ $user->id}}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>
-                                    <a href="{{ url('admin/login-as/' . $user->id) }}" class="btn btn-info">Login as</a>
-                                </td>
+                                @if($user->email != 'admin@gmail.com')
+                                    <td>
+                                        <a href="{{ url('admin/login-as/' . $user->id) }}" class="btn btn-info">Login as</a>
+                                    </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>
