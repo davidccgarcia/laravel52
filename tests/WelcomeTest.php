@@ -6,6 +6,6 @@ class WelcomeTest extends TestCase
     function test_welcome_user()
     {
         $this->visit('/')
-            ->seeText('Bienvenido a Styde');
+            ->seeElement('img', ['src' => 'http://laravel52.activity/img/laravel_logo.png', 'alt' => 'Styde']);
     }
 }
