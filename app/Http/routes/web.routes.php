@@ -17,3 +17,7 @@ Route::get('login-as-admin', function () {
 
     return back();
 });
+
+Route::get('vuejs', function () {
+    return view('vuejs');
+});

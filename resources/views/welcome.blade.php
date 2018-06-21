@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Bienvenido a <b>Styde</b></div>
+                <div class="panel-heading">Bienvenido a Styde</div>
 
                 <div class="panel-body">
                 <img src="{{ asset('img/laravel_logo.png') }}" alt="Styde">

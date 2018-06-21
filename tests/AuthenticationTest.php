@@ -50,7 +50,7 @@ class AuthenticationTest extends TestCase
         $this->seeIsAuthenticated();
         
         $this->seePageIs('/')
-            ->see('Welcome - Laravel 5');
+            ->see('Bienvenido a Styde');
     }
 
     function test_a_user_can_logout()
@@ -66,7 +66,7 @@ class AuthenticationTest extends TestCase
         $this->dontSeeIsAuthenticated();
 
         $this->seePageIs('/')
-            ->see('Welcome - Laravel 5');
+            ->see('Bienvenido a Styde');
     }
 
     function test_an_admin_can_login_as_another_user()
