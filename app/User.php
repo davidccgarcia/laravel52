@@ -39,6 +39,11 @@ class User extends Authenticatable
         return $this->id == $post->author_id;
     }
 
+    public function isCollaborator()
+    {
+        return $this->id != 1;
+    }
+
     public function isAdmin()
     {
         return $this->email == 'admin@gmail.com';

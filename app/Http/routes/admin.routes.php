@@ -7,6 +7,10 @@ use App\User;
 
 Route::resource('post', 'PostController');
 
+Route::resource('users', 'UserController', ['parameters' => [
+    'users' => 'user'
+]]);
+
 Route::get('dashboard', function () {
     return '<h1>Welcome to the admin panel</h1>';
 });
