@@ -95,6 +95,27 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
+        'technology.*' => [
+            'required' => 'The tecnology field is required.', 
+            'between'  => 'The technology must be between 2 and 10 characters.',
+        ],
+
+        'years.*'      => [
+            'required' => 'The years field is required.',
+            'integer'  => 'The years must be an integer.', 
+            'required_with' => 'The years field is required when technology is present.'
+        ],
+
+        'experience.*.technology' => [
+            'required' => 'The experience technology field is required', 
+            'between'  => 'The experience technology must be between 2 and 10 characters.'
+        ],
+
+        'experience.*.years' => [
+            'integer' => 'The experience years must be an integer', 
+            'required_with' => 'The experience years field is required when experience technology is present.'
+        ],
     ],
 
     /*

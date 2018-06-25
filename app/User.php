@@ -34,6 +34,11 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
+
     public function isAuthor(Post $post)
     {
         return $this->id == $post->author_id;

@@ -21,3 +21,6 @@ Route::get('login-as-admin', function () {
 Route::get('vuejs', function () {
     return view('vuejs');
 });
+
+Route::get('edit-profile', 'ProfileController@edit');
+Route::put('edit-profile', 'ProfileController@update');
