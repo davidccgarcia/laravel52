@@ -29,6 +29,13 @@ class User extends Authenticatable
         return "{$this->first_name} {$this->last_name}";
     }
 
+    public function scopeSearch($q, $value)
+    {
+        $q->when($value, function ($q) use ($value) {
+            return $q->where('email', $value);
+        });
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

@@ -21,8 +21,8 @@ Route::get('login-as/{id}', function ($id) {
     return redirect('/')->with('admin', 'return to be an administrator user');
 });
 
-Route::get('users', function () {
-    $users = User::all();
+// Route::get('users', function () {
+//     $users = User::all();
 
-    return view('admin.users', compact('users'));
-});
+//     return view('admin.users', compact('users'));
+// });

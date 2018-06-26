@@ -16,9 +16,32 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // $users = User::all();
+        // $users = User::orderBy(DB::raw('RAND()'))->get();
+        // $users = User::orderByRaw('RAND()')->get();
+        // $users = User::inRandomOrder()->get();
+
+        // $q = User::query();
+
+        // if ($request->has('search')) {
+        //     $q->where('email', $request->get('search'))->get();
+        // }
+        
+        // $users = $q->get();
+        
+        // $users = User::search($request->search)
+        //     ->withCount(['experiences' => function ($q) {
+        //         $q->where('name', 'PHP');
+        //     }])
+        //     ->inRandomOrder()
+        //     ->get();
+        
+        // $users = User::whereRaw('first_name = last_name')->get();
+        $users = User::whereColumn(['first_name' => 'last_name'])->get();
+
+        return view('admin.users.index', compact('users'));
     }
 
     /**
