@@ -11,15 +11,23 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web']], function ($router) {
     require __DIR__ . '/routes/web.routes.php';
+});
+
+Route::group([
+    'prefix' => 'admin', 
+    'middleware' => ['web'], 
+    'namespace' => 'Admin'
+], function ($router) {
+    require __DIR__ . '/routes/admin_auth.routes.php';
 });
 
 Route::group([
         'prefix' => 'admin', 
         'middleware' => ['admin'], 
         'namespace' => 'Admin'
-    ], function () {
+    ], function ($router) {
         require __DIR__ . '/routes/admin.routes.php';
 });
 
@@ -27,6 +35,6 @@ Route::group([
         'prefix' => 'api', 
         'middleware' => ['api'], 
         'namespace' => 'Api'
-    ], function () {
+    ], function ($router) {
     require __DIR__ . '/routes/api.routes.php';
 });
